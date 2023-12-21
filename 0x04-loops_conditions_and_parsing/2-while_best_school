@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#this is a shell script that print 1 to 10 using a while loop
+
+i=0
+while $i le 9 ; do echo $i; done
