@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#this is a while loop , printing best school except for the 9th iteration
+
+i=1;
+while [ $i -le 10 ]; do 
+	if [ $i -eq 9 ]; then 
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+
+	((i++))
+done
