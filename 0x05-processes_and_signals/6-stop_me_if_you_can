@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#this script kills a process with pkill
+
+
+sudo pkill -KILL "4-to_infinity_and_beyond"
