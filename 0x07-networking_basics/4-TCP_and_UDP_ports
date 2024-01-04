@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# showing all listening socket(ip + port) and all pids
+#and name of progs to which eah pid belong
+
+netstat -lp
