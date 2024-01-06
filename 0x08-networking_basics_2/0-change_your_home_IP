@@ -3,5 +3,5 @@
 
 sed -i 's/^127.0.0.1[[:space:]]\+localhost$/127.0.0.2 localhost' /etc/hosts
 
-fbk_ip = $(nslookup facebook.com)
-sed -i "s/^$fbk_ip[[:space:]]\+facebook.com$/8.8.8.8 facebook.com" /etc/hosts
+fbk_ip=$(nslookup facebook.com)
+sed -i "s/^${fbk_ip}[[:space:]]\+facebook.com$/8.8.8.8 facebook.com" /etc/hosts
