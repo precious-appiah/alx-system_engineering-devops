@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#display all network interfaces
+
+ifconfig | grep "inet\s" | awk '{print $2}'
