@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# resolving localhost and facebook.com point to diff ips
+# resolving localhost and facebook.com to point to diff ips
 
-sed -i 's/^127.0.0.1[[:space:]]\+localhost$/127.0.0.2 localhost' /etc/hosts
-
-fbk_ip=$(nslookup facebook.com)
-sed -i "s/^${fbk_ip}[[:space:]]\+facebook.com$/8.8.8.8 facebook.com" /etc/hosts
+path='/etc/hosts'
+echo "127.0.0.2		localhost" >> "$path"
+echo "8.8.8.8	facebook.com" >> "$path"
