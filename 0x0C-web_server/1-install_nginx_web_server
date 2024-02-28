@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # installing and configuring nginx using bash script 
 
-ssh ubuntu@107.21.38.255 && sudo apt -y install nginx && echo "hello world"
+sudo apt-get update && sudo apt -y install nginx &&
