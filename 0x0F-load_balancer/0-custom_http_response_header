@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# installing and configuring nginx using bash script 
+sudo apt-get update -y
+sudo apt-get install -y nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+echo "server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name 54.89.181.175;
+    X-served-By 398328-web-02
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}" | sudo tee /etc/nginx/sites-available/config
+sudo service nginx restart
