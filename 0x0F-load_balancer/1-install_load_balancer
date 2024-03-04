@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# installing and configuring HA Proxy
+sudo apt install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.4 -y
+sudo apt update 
+sudo apt-get install haproxy -y
+echo "{
+    frontend http_front
+        bind *:80
+        stats uri /haproxy?stats
+        default_backend http_back
+
+    backend http_back
+        balance roundrobin
+        server 398328-web-01 107.21.38.255:80 check
+        server 398328-web-02 35.153.50.233:80 check
+}" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
+sudo systemctl start haproxy
+sudo systemctl enable haproxy
