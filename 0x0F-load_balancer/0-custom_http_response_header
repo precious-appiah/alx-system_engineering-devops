@@ -1,19 +1,29 @@
 #!/usr/bin/env bash
-# installing and configuring nginx using bash script 
+#configuring web 02
 sudo apt-get update -y
 sudo apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
-echo "server {
+sudo tee /etc/nginx/sites-available/default >/dev/null <<EOF
+server {
     listen 80;
     listen [::]:80;
 
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    add_header X-served-By $HOSTNAME;
 
-    server_name 54.89.181.175;
-    add_header X-Served-By $HOSTNAME
+    error_page 404 /notFound.html;
+    location = /notFound.html {
+        root /var/www/html;
+        internal;
+    }  
     location / {
-        try_files $uri $uri/ =404;
+        return 404 "Ceci n'est pas une page";
     }
-}" | sudo tee /etc/nginx/sites-available/config
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html; 
+}
+EOF
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/notFound.html >/dev/null
+
 sudo service nginx restart
