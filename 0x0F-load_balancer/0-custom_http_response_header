@@ -11,7 +11,7 @@ echo "server {
     index index.html index.htm index.nginx-debian.html;
 
     server_name 54.89.181.175;
-    add_header X-served-By $HOSTNAME
+    add_header X-Served-By $HOSTNAME
     location / {
         try_files $uri $uri/ =404;
     }
