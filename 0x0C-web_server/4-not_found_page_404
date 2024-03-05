@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#serving 404
+udo apt-get update -y
+sudo apt-get install -y nginx
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/notFound.html
+echo "server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name 107.21.38.255;
+
+    error_page 404 /notFound.html;
+    location = /notFound.html {
+        root /var/www/html;
+        internal;
+    }
+}" | sudo tee /etc/nginx/sites-available/default;
+sudo service nginx restart
