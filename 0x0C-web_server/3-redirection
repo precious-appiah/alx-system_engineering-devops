@@ -14,8 +14,6 @@ echo "server {
     location /redirect_me {
         return 301 https://intranet.alxswe.com/
     }
-    location / {
-        try_files $uri $uri/ =404;
-    }
+
 }" | sudo tee /etc/nginx/sites-available/config
 sudo service nginx restart
