@@ -22,5 +22,7 @@ server {
     index index.html index.htm index.nginx-debian.html; 
 }
 EOF
+
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/notFound.html >/dev/null
+
 sudo service nginx restart
