@@ -9,10 +9,7 @@ server {
     listen [::]:80;
 
     server_name 107.21.38.255;
-
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-
+    
     error_page 404 /notFound.html;
     location = /notFound.html {
         root /var/www/html;
@@ -20,7 +17,10 @@ server {
     }  
     location / {
         return 404 "Ceci n'est pas une page";
-    } 
+    }
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html; 
 }
 EOF
 sudo service nginx restart
