@@ -12,7 +12,7 @@ echo "server {
 
     server_name 107.21.38.255;
     location /redirect_me {
-        return 301 https://intranet.alxswe.com/
+        return 301 https://intranet.alxswe.com/;
     }
 
 }" | sudo tee /etc/nginx/sites-available/config
