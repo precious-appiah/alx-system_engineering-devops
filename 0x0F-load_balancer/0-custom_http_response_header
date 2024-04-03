@@ -10,9 +10,6 @@ sudo tee /etc/nginx/sites-available/default >/dev/null <<EOF
 server {
     listen 80;
     listen [::]:80;
-    add_header X-Served-By $HOSTNAME;
-    
-    server_name 107.21.38.255;
 
     error_page 404 /notFound.html;
     location = /notFound.html {
@@ -20,7 +17,8 @@ server {
         internal;
     }  
     location / {
-        return 404 "Ceci n'est pas une page\n";
+	root /var/www/html;
+        add_header X-Served-By $HOSTNAME;
     }
 
     root /var/www/html;

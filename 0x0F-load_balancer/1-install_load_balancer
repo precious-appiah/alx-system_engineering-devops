@@ -9,8 +9,8 @@ echo "{
 
     backend http_back
         balance roundrobin
-        server 398328-web-01 107.21.38.255:80 check
-        server 398328-web-02 35.153.50.233:80 check
+        server 398328-web-01 100.27.10.204:80 check
+        server 398328-web-02 100.25.135.30:80 check
 }" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
 
 sudo service  haproxy restart
