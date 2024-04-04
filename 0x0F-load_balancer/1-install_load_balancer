@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 # installing and configuring HA Proxy
-sudo apt update 
-sudo apt-get install haproxy -y
-echo "{
-    frontend http_frontend
+apt-get update
+apt-get install haproxy -y
+echo "
+frontend real-solution.tech
         bind *:80
-        default_backend http_backend
+        default_backend web_servers
 
-    backend http_back
+backend web_servers
+        mode http
         balance roundrobin
         server 398328-web-01 100.27.10.204:80 check
         server 398328-web-02 100.25.135.30:80 check
-}" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
-
-sudo service  haproxy restart
-
+" > /etc/haproxy/haproxy.cfg
+service haproxy restart
