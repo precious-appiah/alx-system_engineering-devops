@@ -6,8 +6,8 @@ server_info() {
     local ip
     local domain=$1
     local subdomain=$2
-    ip=$(dig +short "$subdomain.$domain")
-    record=$(dig "$subdomain.$domain "| awk '/^;; ANSWER SECTION:$/ { getline; print $4 }')
+    ip=$(dig +short $subdomain.$domain)
+    record=$(dig $subdomain.$domain | awk '/^;; ANSWER SECTION:$/ { getline; print $4 }')
 
     echo "The subdomain $subdomain is a $record record and points to $ip"
 }
