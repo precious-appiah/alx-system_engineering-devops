@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# bash function to print details of dns 
+
+server_info() {
+    local domain=$1
+    local subdomain=$2
+    ip=$(dig +short "$subdomain.$domain")
+    record=$(dig "$subdomain.$domain" | awk '/^;; ANSWER SECTION:$/ { getline; print $4 }')
+
+    echo "The subdomain $subdomain is a $record record and points to $ip"
+}
+if [ -z "$2" ]
+then 
+    server_info "$1" "www"
+    server_info "$1" "lb-01"
+    server_info "$1" "web-01"
+    server_info "$1" "web-02"
+else 
+    server_info "$1" "$2"
+fi
