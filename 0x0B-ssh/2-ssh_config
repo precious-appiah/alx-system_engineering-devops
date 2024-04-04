@@ -7,14 +7,14 @@ Host ubuntu
         IdentityFIle ~/.ssh/school
         PasswordAuthentication no
 
-Host LB_server
-	Hostname 54.89.181.175
+Host ubuntu2
+	Hostname 100.25.135.30
 	User ubuntu
 	IdentityFile ~/.ssh/school
 	PasswordAuthentication no
 
-Hose LB_server2
-	Hostname 35.153.50.233
+Host LB_server
+	Hostname 100.25.134.76
 	User ubuntu
 	IdentityFile ~/.ssh/school
 	PasswordAuthentication no
