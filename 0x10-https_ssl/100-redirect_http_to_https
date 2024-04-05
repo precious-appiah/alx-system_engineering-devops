@@ -1,0 +1,13 @@
+#/usr/bin/env bash
+#configuring HAproxy for ssl
+frontend real-solution.tech
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.real-solution.tech.pem
+        redirect scheme https code 301 if !{ ssl_fc }
+        default_backend web_servers
+
+backend web_servers
+        mode http
+        balance roundrobin
+        server 398328-web-01 100.27.10.204:80 check
+        server 398328-web-02 100.25.135.30:80 check
