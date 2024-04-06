@@ -1,5 +1,3 @@
-#/usr/bin/env bash
-#configuring HAproxy for ssl
 frontend real-solution.tech
         bind *:80
         bind *:443 ssl crt /etc/haproxy/certs/www.real-solution.tech.pem
