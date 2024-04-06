@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# debugging nsinx not listening on 80
+
+#solution : symlink siteconf file correctly.
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+#just incase port 80 is not enabled on firewall 
+sudo ufw allow 'Nginx HTTP'
+
+#restart  nginx 
+service nginx restart
+
