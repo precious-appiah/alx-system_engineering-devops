@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#nginx not listening on 80 , short answer less thank 5 lines ;
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+
