@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # checking user 
 user="$1"
-sudo su "$user"
-whoami
+sudo -u "$user" -c whoami
