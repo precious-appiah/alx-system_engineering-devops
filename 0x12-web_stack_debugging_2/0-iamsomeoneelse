@@ -4,4 +4,4 @@ if [ "$#" -ne 1 ] ; then
     exit;
 fi
 user="$1"
-sudo -su "$user" -c whoami
+sudo -u "$user" whoami   
